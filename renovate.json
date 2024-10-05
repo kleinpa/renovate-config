@@ -1,0 +1,16 @@
+{
+  "extends": ["config:base"],
+  "schedule": ["before 5am on monday"],
+  "automerge": false,
+  "prHourlyLimit": 0,
+  "prConcurrentLimit": 5,
+  "labels": ["renovate", "dependencies"],
+  "packageRules": [
+    {
+      "matchCurrentVersion": ">= 1.0.0",
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "all non-breaking updates",
+      "groupSlug": "non-breaking"
+    }
+  ]
+}
