@@ -1,16 +1,33 @@
 {
-  "extends": ["config:base"],
-  "schedule": ["before 5am on monday"],
-  "automerge": false,
-  "prHourlyLimit": 0,
-  "prConcurrentLimit": 5,
-  "labels": ["renovate", "dependencies"],
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["github>kleinpa/renovate-config"],
+  "timezone": "America/New_York",
+  "automerge": true,
+  "automergeType": "branch",
+  "branchConcurrentLimit": 0,
+  "dependencyDashboard": true,
   "packageRules": [
     {
-      "matchCurrentVersion": ">= 1.0.0",
-      "matchUpdateTypes": ["minor", "patch"],
-      "groupName": "all non-breaking updates",
-      "groupSlug": "non-breaking"
+      "matchManagers": ["github-actions"],
+      "groupName": "github-actions",
+      "groupSlug": "github-actions",
+      "schedule": [
+        "on the 1st and 3rd day instance on Monday after 9am and before 12pm"
+      ]
+    },
+    {
+      "matchManagers": ["terraform"],
+      "groupName": "terraform",
+      "groupSlug": "terraform",
+      "schedule": [
+        "on the 1st and 3rd day instance on Monday after 9am and before 12pm"
+      ]
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "schedule": [
+        "on the 1st and 3rd day instance on Monday after 9am and before 12pm"
+      ]
     }
   ]
 }
