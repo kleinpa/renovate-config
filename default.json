@@ -4,7 +4,6 @@
   "timezone": "America/New_York",
   "automerge": true,
   "automergeType": "branch",
-  "branchConcurrentLimit": 5,
   "prConcurrentLimit": 2,
   "dependencyDashboard": true,
   "packageRules": [
