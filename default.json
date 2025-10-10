@@ -17,6 +17,7 @@
     },
     {
       "matchManagers": ["terraform"],
+      "matchDepTypes": ["required_provider"],
       "groupName": "terraform",
       "groupSlug": "terraform",
       "schedule": [
