@@ -11,6 +11,8 @@
       "matchManagers": ["github-actions"],
       "groupName": "github-actions",
       "groupSlug": "github-actions",
+      "automergeType": "pr",
+      "automergeStrategy": "squash",
       "schedule": [
         "on the first day of the month after 9am and before 12pm"
       ]
