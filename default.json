@@ -11,24 +11,39 @@
       "matchManagers": ["github-actions"],
       "groupName": "github-actions",
       "groupSlug": "github-actions",
-      "schedule": [
-        "on the 1st and 3rd day instance on Monday after 9am and before 12pm"
-      ]
+      "schedule": ["on the first day instance on Monday"]
     },
     {
       "matchManagers": ["terraform"],
       "matchDepTypes": ["required_provider"],
       "groupName": "terraform",
       "groupSlug": "terraform",
-      "schedule": [
-        "on the 1st and 3rd day instance on Monday after 9am and before 12pm"
-      ]
+      "schedule": ["on the first day instance on Monday"]
     },
     {
       "matchDepTypes": ["devDependencies"],
-      "schedule": [
-        "on the 1st and 3rd day instance on Monday after 9am and before 12pm"
-      ]
+      "schedule": ["on the first day instance on Monday"]
+    },
+    {
+      "description": "Group build-tool dependencies into a single monthly update",
+      "matchManagers": ["bazel-module"],
+      "matchPackageNames": [
+        "bazel_skylib",
+        "platforms",
+        "rules_cc",
+        "rules_distroless",
+        "rules_oci",
+        "rules_pkg",
+        "rules_python"
+      ],
+      "groupName": "dev-tools",
+      "schedule": ["on the first day instance on Monday"]
+    },
+    {
+      "description": "Group build-tool dependencies into a single monthly update",
+      "matchManagers": ["github-actions", "devcontainer", "bazelisk"],
+      "groupName": "dev-tools",
+      "schedule": ["on the first day instance on Monday"]
     }
   ]
 }
