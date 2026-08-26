@@ -4,30 +4,37 @@
   "timezone": "America/New_York",
   "automerge": true,
   "automergeType": "branch",
-  "prConcurrentLimit": 2,
+  "prHourlyLimit": 2,
   "dependencyDashboard": true,
   "packageRules": [
     {
-      "matchManagers": ["github-actions"],
-      "groupName": "github-actions",
-      "groupSlug": "github-actions",
-      "schedule": [
-        "on the 1st and 3rd day instance on Monday after 9am and before 12pm"
-      ]
-    },
-    {
-      "matchManagers": ["terraform"],
-      "groupName": "terraform",
-      "groupSlug": "terraform",
-      "schedule": [
-        "on the 1st and 3rd day instance on Monday after 9am and before 12pm"
-      ]
-    },
-    {
+      "groupName": "dev-tools",
       "matchDepTypes": ["devDependencies"],
-      "schedule": [
-        "on the 1st and 3rd day instance on Monday after 9am and before 12pm"
-      ]
+      "schedule": ["* 0-8 1-7 * 1"]
+    },
+    {
+      "matchManagers": ["bazel-module"],
+      "matchPackageNames": [
+        "bazel_skylib",
+        "platforms",
+        "rules_cc",
+        "rules_distroless",
+        "rules_oci",
+        "rules_pkg",
+        "rules_python"
+      ],
+      "groupName": "dev-tools",
+      "schedule": ["* 0-8 1-7 * 1"]
+    },
+    {
+      "matchManagers": [
+        "github-actions",
+        "devcontainer",
+        "bazelisk",
+        "terraform"
+      ],
+      "groupName": "dev-tools",
+      "schedule": ["* 0-8 1-7 * 1"]
     }
   ]
 }
